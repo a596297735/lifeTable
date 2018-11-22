@@ -988,11 +988,14 @@
         </tr>
     </table> -->
         <input type="month" id="input-date">
+        <input type="text" id="input-text">
+
     <script>
-                    let val = document.getElementById("input-date")；
-                       val.onchange = function(){
-                         alert(val.value)
-                       }
+            let val = document.getElementById("input-date"),
+                txt = document.getElementById("input-text");
+            val.onchange = function () {
+                txt.value = val.value
+            }
 
 //         ; (function () {
 //             let tds = document.querySelectorAll("td"),
