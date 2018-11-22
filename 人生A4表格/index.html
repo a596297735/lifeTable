@@ -989,6 +989,11 @@
     </table> -->
         <input type="month" id="input-date">
     <script>
+                    let val = document.getElementById("input-date")；
+                       val.onchange = function(){
+                         alert(val.value)
+                       }
+
 //         ; (function () {
 //             let tds = document.querySelectorAll("td"),
 //                 month = (new Date().getFullYear() - 1996) * 12 + 8;
