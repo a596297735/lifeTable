@@ -39,7 +39,7 @@
             font-weight: bolder;
             font-size: 24px;
             outline: none;
-            border-radius: 100px;            
+            border-radius: 100px;
             background-color: #FFF;
         }
         table {
@@ -1044,12 +1044,13 @@
                     month = document.getElementById("month");
                     yearVal = year.value.trim(),
                     monthVal = month.value.trim();                     
-                    if(yearVal.length == 4 && /19\d{2}|20\d{2}/.test(yearVal) && /\d{1}|[0,1,2]/g.test(monthVal)){ 
+                    if(yearVal.length == 4 && ((monthVal.length == 1 && monthVal[0] != 0) || (monthVal.length == 2 && (monthVal[0] == 1 && monthVal[1] == '0' || monthVal[1] == '1' || monthVal[1] == '2') )) && /19\d{2}|20\d{2}/.test(yearVal)){ 
                         year.value = '';
                         month.value= '';
                         warning.innerText = '';
                         let tds = document.querySelectorAll("td"),
-                            months = (new Date().getFullYear() - yearVal) * 12 + Number(monthVal);
+                            tempMon = new Date().getMonth()+1 - Number(monthVal);
+                            months = (new Date().getFullYear() - yearVal) * 12 + tempMon;
                         for (let i = 0; i < months; i++) {
                             tds[i].style.backgroundColor = '#f00';
                         }
