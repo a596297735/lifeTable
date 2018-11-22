@@ -1039,6 +1039,10 @@
             year.oninput = function () {
                 warning.innerText = '';
             }
+            year.focus();
+            window.onkeydown = function (e) {
+                if(e.keyCode == 13) btn.click();
+            }
             btn.onclick = function () {
                 let year = document.getElementById("year"),
                     month = document.getElementById("month");
@@ -1070,6 +1074,7 @@
                             item.height = document.documentElement.clientHeight / 30 + 'px';
                  })
             }
+            
         }())
 
     </script>
